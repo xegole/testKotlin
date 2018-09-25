@@ -1,8 +1,8 @@
 package com.bigthinkapps.calculator
 
-import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -11,11 +11,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val calc = Calculator()
+        btnLogin.setOnClickListener { onClickButton() }
 
-        labelTest.text = "This is"
-        labelTest.setTextColor(Color.BLUE)
+        labelLogin.setOnClickListener {
+            Toast.makeText(this, "click over label", Toast.LENGTH_SHORT).show()
+            inputMessage.setText("empty value")
+        }
+    }
 
-        btnOperation.setOnClickListener { labelTest.text = calc.mult(2, 3).toString() }
+    private fun onClickButton() {
+        val message = inputMessage.text
+        Toast.makeText(this, "this is a message", Toast.LENGTH_SHORT).show()
+        labelLogin.text = message
     }
 }
