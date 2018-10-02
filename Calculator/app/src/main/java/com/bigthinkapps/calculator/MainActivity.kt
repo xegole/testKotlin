@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     private fun goToLoginScreen() {
         val password = textPassword.text.toString()
 
-        if (password == PASS_VALID) {
+        if (password != PASS_VALID) {
             val intent = Intent(this, LoginActivity::class.java)
             val bundle = Bundle()
 
