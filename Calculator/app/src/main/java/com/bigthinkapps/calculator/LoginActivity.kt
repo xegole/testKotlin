@@ -25,9 +25,12 @@ class LoginActivity : AppCompatActivity() {
         val platform = intent.extras.getString("extra_platform") as String
         labelPlatform.text = platform
 
-        val adapter = UsersAdapter(ArrayList(), this)
+        val adapter = UsersAdapter(ArrayList())
         recyclerUsers.adapter = adapter
-        recyclerUsers.layoutManager = LinearLayoutManager(this)
+        recyclerUsers.layoutManager = LinearLayoutManager(
+                this,
+                LinearLayoutManager.VERTICAL,
+                false)
 
         btnMain.setOnClickListener { adapter.addMoreItems(getUserList()) }
     }
@@ -42,9 +45,11 @@ class LoginActivity : AppCompatActivity() {
         val userList = ArrayList<UserList>()
         val user = UserList("diego", "leon", 28, TYPE_USER)
         val admin = UserList("fernando", "puerta", 28, TYPE_ADMIN)
+        val user2 = UserList("pedro", "contreras", 32, TYPE_USER)
 
         userList.add(user)
         userList.add(admin)
+        userList.add(user2)
         return userList
     }
 

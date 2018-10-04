@@ -1,25 +1,17 @@
 package com.bigthinkapps.calculator.adapter
 
-import android.content.Context
-import android.content.Intent
-import android.os.Bundle
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import com.bigthinkapps.calculator.DetailUserActivity
 import com.bigthinkapps.calculator.LoginActivity.Companion.TYPE_ADMIN
 import com.bigthinkapps.calculator.R
+import com.bigthinkapps.calculator.adapter.viewholder.UserViewHolder
 import com.bigthinkapps.calculator.model.UserList
-import kotlinx.android.synthetic.main.user_item_adapter.view.*
 
-class UsersAdapter(
-        val items: ArrayList<UserList>,
-        val context: Context) : RecyclerView.Adapter<UsersAdapter.UserViewHolder>() {
-
+class UsersAdapter(private val items: ArrayList<UserList>) :
+        RecyclerView.Adapter<UserViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, typeView: Int): UserViewHolder {
-
         return if (typeView == TYPE_ADMIN) {
             val view = LayoutInflater
                     .from(parent.context)
@@ -49,25 +41,5 @@ class UsersAdapter(
 
     override fun getItemViewType(position: Int): Int {
         return items[position].typeUser
-    }
-
-    class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-
-        fun setData(userList: UserList) {
-            itemView.labelName.text = userList.name
-            itemView.labelLastName.text = userList.lastName
-            itemView.labelAge.text = userList.age.toString()
-
-            itemView.setOnClickListener { goToDetail(userList) }
-        }
-
-        private fun goToDetail(userList: UserList) {
-            val intent = Intent(itemView.context, DetailUserActivity::class.java)
-            val bundle = Bundle()
-            bundle.putSerializable("user_list_extra", userList)
-            intent.putExtras(bundle)
-            itemView.context.startActivity(intent)
-        }
     }
 }
