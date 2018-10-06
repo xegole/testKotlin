@@ -19,7 +19,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         userExtra = intent.extras.getSerializable("extra_user") as User
-        //here assigned variable user
+        //user = userExtra
         textUsername.setText(user.username)
 
         val platform = intent.extras.getString("extra_platform") as String
@@ -34,6 +34,8 @@ class LoginActivity : AppCompatActivity() {
 
         btnMain.setOnClickListener { adapter.addMoreItems(getUserList()) }
     }
+
+
 
     private fun goToMainScreen() {
         val intent = Intent(this, MainActivity::class.java)
