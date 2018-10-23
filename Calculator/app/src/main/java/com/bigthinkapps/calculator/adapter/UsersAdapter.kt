@@ -6,9 +6,10 @@ import android.view.ViewGroup
 import com.bigthinkapps.calculator.LoginActivity.Companion.TYPE_ADMIN
 import com.bigthinkapps.calculator.R
 import com.bigthinkapps.calculator.adapter.viewholder.UserViewHolder
+import com.bigthinkapps.calculator.model.Store
 import com.bigthinkapps.calculator.model.UserList
 
-class UsersAdapter(private val items: ArrayList<UserList>) :
+class UsersAdapter(private val items: ArrayList<Store>) :
         RecyclerView.Adapter<UserViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, typeView: Int): UserViewHolder {
@@ -29,7 +30,7 @@ class UsersAdapter(private val items: ArrayList<UserList>) :
         return items.size
     }
 
-    fun addMoreItems(list: ArrayList<UserList>) {
+    fun addMoreItems(list: ArrayList<Store>) {
         items.clear()
         items.addAll(list)
         notifyDataSetChanged()
@@ -40,6 +41,6 @@ class UsersAdapter(private val items: ArrayList<UserList>) :
     }
 
     override fun getItemViewType(position: Int): Int {
-        return items[position].typeUser
+        return 101//items[position].typeUser
     }
 }

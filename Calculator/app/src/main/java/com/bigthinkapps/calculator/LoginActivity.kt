@@ -4,9 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import com.bigthinkapps.calculator.Utils.jsonData
 import com.bigthinkapps.calculator.adapter.UsersAdapter
+import com.bigthinkapps.calculator.entity.GetAllCommercesResponse
+import com.bigthinkapps.calculator.model.Store
 import com.bigthinkapps.calculator.model.User
 import com.bigthinkapps.calculator.model.UserList
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -43,16 +47,9 @@ class LoginActivity : AppCompatActivity() {
         MainActivity.TAG
     }
 
-    private fun getUserList(): ArrayList<UserList> {
-        val userList = ArrayList<UserList>()
-        val user = UserList("diego", "leon", 28, TYPE_USER)
-        val admin = UserList("fernando", "puerta", 28, TYPE_ADMIN)
-        val user2 = UserList("pedro", "contreras", 32, TYPE_USER)
-
-        userList.add(user)
-        userList.add(admin)
-        userList.add(user2)
-        return userList
+    private fun getUserList(): ArrayList<Store> {
+        val allCommercesResponse = Gson().fromJson(jsonData, GetAllCommercesResponse::class.java)
+        return allCommercesResponse.result
     }
 
     companion object {

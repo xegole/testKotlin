@@ -12,7 +12,17 @@
         android:layout_height="58dp"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
         app:titleTextColor="#fff" />
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        tools:layout_editor_absoluteX="0dp" />
+
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPagerPages"
@@ -20,7 +30,9 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout"
+        app:layout_constraintVertical_bias="0.296" />
 
 </android.support.constraint.ConstraintLayout>

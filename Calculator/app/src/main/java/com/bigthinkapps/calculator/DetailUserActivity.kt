@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import com.bigthinkapps.calculator.adapter.PagePagerAdapter
+import com.bigthinkapps.calculator.fragment.Page2Fragment
 import com.bigthinkapps.calculator.fragment.PageFragment
 import com.bigthinkapps.calculator.model.UserList
 import kotlinx.android.synthetic.main.activity_detail_user.*
@@ -20,37 +21,13 @@ class DetailUserActivity : AppCompatActivity() {
 
         val listFragment = ArrayList<Fragment>()
         listFragment.add(PageFragment.newInstance(R.drawable.image_1))
-        listFragment.add(PageFragment.newInstance(R.drawable.image_2))
-        listFragment.add(PageFragment.newInstance(R.drawable.image_3))
-        listFragment.add(PageFragment.newInstance(R.drawable.image_4))
-        listFragment.add(PageFragment.newInstance(R.drawable.image_1))
-        listFragment.add(PageFragment.newInstance(R.drawable.image_2))
-        listFragment.add(PageFragment.newInstance(R.drawable.image_3))
-        listFragment.add(PageFragment.newInstance(R.drawable.image_4))
-        listFragment.add(PageFragment.newInstance(R.drawable.image_1))
-        listFragment.add(PageFragment.newInstance(R.drawable.image_2))
-        listFragment.add(PageFragment.newInstance(R.drawable.image_3))
-        listFragment.add(PageFragment.newInstance(R.drawable.image_4))
-        listFragment.add(PageFragment.newInstance(R.drawable.image_1))
-        listFragment.add(PageFragment.newInstance(R.drawable.image_2))
-        listFragment.add(PageFragment.newInstance(R.drawable.image_3))
-        listFragment.add(PageFragment.newInstance(R.drawable.image_4))
-        listFragment.add(PageFragment.newInstance(R.drawable.image_1))
-        listFragment.add(PageFragment.newInstance(R.drawable.image_2))
-        listFragment.add(PageFragment.newInstance(R.drawable.image_3))
-        listFragment.add(PageFragment.newInstance(R.drawable.image_4))
-        listFragment.add(PageFragment.newInstance(R.drawable.image_1))
-        listFragment.add(PageFragment.newInstance(R.drawable.image_2))
-        listFragment.add(PageFragment.newInstance(R.drawable.image_3))
-        listFragment.add(PageFragment.newInstance(R.drawable.image_4))
-        listFragment.add(PageFragment.newInstance(R.drawable.image_1))
-        listFragment.add(PageFragment.newInstance(R.drawable.image_2))
-        listFragment.add(PageFragment.newInstance(R.drawable.image_3))
-        listFragment.add(PageFragment.newInstance(R.drawable.image_4))
+        listFragment.add(Page2Fragment.newInstance(R.drawable.image_2))
 
         val pagerAdapter = PagePagerAdapter(listFragment, supportFragmentManager)
         viewPagerPages.adapter = pagerAdapter
         viewPagerPages.offscreenPageLimit = 2
+
+        tabLayout.setupWithViewPager(viewPagerPages)
     }
 
 
