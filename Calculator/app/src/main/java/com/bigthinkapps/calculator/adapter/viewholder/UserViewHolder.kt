@@ -1,12 +1,8 @@
 package com.bigthinkapps.calculator.adapter.viewholder
 
-import android.content.Intent
-import android.os.Bundle
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import com.bigthinkapps.calculator.DetailUserActivity
-import com.bigthinkapps.calculator.model.Store
-import com.bigthinkapps.calculator.model.UserList
+import com.bigthinkapps.calculator.entity.File
 import kotlinx.android.synthetic.main.user_item_adapter.view.*
 
 class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -15,10 +11,10 @@ class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     }
 
-    fun setData(store: Store) {
-        itemView.labelName.text = store.name
-        itemView.labelLastName.text = store.commerceImage
-        itemView.labelAge.text = store.idCommerce.toString()
+    fun setData(file: File) {
+        itemView.labelName.text = file.name
+        itemView.labelLastName.text = file.status
+        itemView.labelAge.text = file.contentType
 
         //itemView.setOnClickListener { goToDetail(userList) }
     }
